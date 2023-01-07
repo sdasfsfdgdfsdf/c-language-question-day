@@ -1,0 +1,39 @@
+//题目二:求1+2!+3!+......+n!
+int jiecheng(int n)
+{
+	if (n == 0)//一开始写了个n=0真的搞死我了
+	{
+		return 1;
+
+	}
+	else 
+
+	{
+		int sum = 1;
+		for (int i = 1; i < n + 1; i++)
+		{
+			sum = sum * i;
+		}
+		return sum;
+	}
+	
+}
+int jiechenghe(int n)
+{
+	int sum = 0;
+	int i = 1;
+	while (i <= n)
+	{
+		sum = sum + jiecheng(i);
+		i++;
+	}
+	return sum;
+}
+int main()
+{
+	printf("enter the number you want>:");
+	int number = 0;
+	scanf_s("%d", &number);
+	printf("the answer is %d", jiechenghe(number));
+	return 0;
+}
