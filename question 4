@@ -1,0 +1,54 @@
+//问题三:利润问题
+#include<stdio.h>
+float profit1(int wage)
+{
+	float profit = wage*0.1;
+	return profit;
+}
+float profit2(int wage)
+{
+	float profit = profit1(100000) + (wage - 100000) * 0.075;
+	return profit;
+}
+float profit3(int wage)
+{
+	float profit = profit2(200000) + (wage - 200000) * 0.05;
+	return profit;
+
+}
+float profit4(int wage)
+{
+	float profit = profit3(400000) + (wage - 400000) * 0.03;
+	return profit;
+}
+float profit5(int wage)
+{
+	float profit = profit4(600000) + (wage - 600000) * 0.015;
+	return profit;
+}
+float profit6(int wage)
+{
+	float profit = profit3(1000000) + (wage - 1000000) * 0.01;
+	return profit;
+}
+
+int main()
+{
+	printf("please enter your wage per year:>\n");
+	int wage = 0;
+	float profit = 0;
+	scanf("%d", &wage);
+	if (wage <= 10000)
+		profit = wage * 0.1;
+	if (100000 < wage <= 200000)
+		profit = 100000 * 0.1 + (wage - 100000) * 0.075;
+	if(200000<wage<400000)
+	profit= 100000 * 0.1 + 100000 * 0.075+(wage-200000);//写到这里的时候我觉得麻烦死了,这时候我觉得我可以加上一点小方法
+	if (400000 < wage <= 600000)
+		profit = profit4(wage);
+	if (600000 < wage <= 1000000)
+		profit = profit5(wage);
+	if (1000000 < wage)
+		profit = profit6(wage);
+	printf("your profit is %f", profit);
+}
