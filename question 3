@@ -1,0 +1,22 @@
+//题目上一个数字加上100是一个完全平方数,再加上168又是一个完全平方数
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+	for (int i = 2; i <=sqrt(168); i++)
+	{
+		if (168 % i == 0)
+		{
+			int j = 168 /i;
+			int m = (i + j)/2;
+			int n = (i - j)/2;
+			int x = (n * n - 100);
+			int y =( m * m - 268);
+			if (x == y&&x>0)
+			{
+				printf("%d and %d ", i, j);
+				printf("%d==%d\n", x,y);
+			}
+		}
+	}
+}
